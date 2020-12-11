@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn2></cpn2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  //1.第一个构造器（子组件）
+  const cpnc1= Vue.extend({
+    template:`
+    <div>
+      <h2>wowowo</h2>
+      <h2>jintian</h2>
+    </div>
+    `
+  })
+  //第二个构造器（父组件）
+  const cpnc2 =Vue.extend({
+    template:`
+    <div>
+      <h2>hahha</h2>
+      <h2>mingtian</h2>
+      <cpn1></cpn1>
+    </div>`,
+    components:{
+      cpn1: cpnc1
+    }
+  })
+  //root组件
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components:{
+      cpn2:cpnc2
+    }
+  })
+</script>
+</body>
+</html>

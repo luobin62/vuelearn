@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      color: green;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h2 class="kid" :class="{active:isactive}">hahha</h2>
+  <h2 :style="{color:show}">okok</h2>
+  <a :href="url">baidu</a>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      isactive:true,
+      show: 'red',
+      url:'https://www.baidu.com'
+    }
+  })
+</script>
+</body>
+</html>

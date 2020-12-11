@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="m in letter" >{{m}}</li>
+  </ul>
+  <button @click="bntclick">按钮</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      letter: ['a','b','c','d']
+    },
+    methods: {
+      bntclick (){
+        //1.push方法
+        //this.letter.push('zz','ff')
+        //2.通过索引值修改数组中的元素(不能做到响应式)
+        //this.letter[0]='bbbb'
+        //2.pop方法,删除数组的最后一个元素
+        //this.letter.pop()
+        //3.shift方法，删除数组的第一个元素
+        //this.letter.shift()
+        //4.unshift方法，在数组最前面添加元素
+        //this.letter.unshift('bb','cc','dd')
+        //5.splice方法,删除元素/添加元素/替换元素
+        //删除元素：第二个参数传入你要删除几个元素,如果没有传，就删除所有的元素
+        //this.letter.splice(1,1)
+        //替换元素:第二个元素是要替换几个元素，后面是替换前面元素的元素
+        //this.letter.splice(1,3,'m','n','l','y')
+        //插入元素:第二个参数传零，后面跟上要插入的元素
+        //this.letter.splice(1,0,'m','n','y')
+        //6.sort方法，排序
+        //this.letter.sort()
+        //7.reverse方法，反转
+        //this.letter.reverse()
+
+        //注意：用过索引值修改数组中的值
+        //this.letter[0]='zzz'(不是响应式)
+        //方法1：可采用此splice方法
+        //this.letter.splice(0,1,'zzz')
+        //方法2：采用vue.set(要修改对象，索引值，新的元素)
+        Vue.set(this.letter,0,'zzz')
+      }
+    }
+  })
+</script>
+</body>
+</html>

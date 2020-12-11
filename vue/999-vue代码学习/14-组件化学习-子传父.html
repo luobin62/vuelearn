@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn @addbtn="addbtnclick" @decbtn="decbtnclick"></cpn>
+  <cpn @addbtn="addbtnclick" @decbtn="decbtnclick"></cpn>
+</div>
+<template id="mm">
+  <div>
+    <h2>当前计数器值：{{counter}}</h2>
+  <button @click="addclick">+</button>
+  <button @click="decclick">-</button>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components:{
+      cpn: {
+        template: '#mm',
+        data (){
+          return {
+            counter:0
+          }
+        },
+        methods: {
+          addclick(){
+            this.counter++;
+            this.$emit('addbtn',this.counter)
+          },
+          decclick(){
+            this.counter--;
+            this.$emit('decbtn',this.counter)
+          }
+        }
+      }
+    },
+    methods:{
+      addbtnclick(){
+        console.log('addbtnclick');
+      },
+      decbtnclick(){
+        console.log('decbtnclick');
+      }
+    }
+  })
+</script>
+</body>
+</html>

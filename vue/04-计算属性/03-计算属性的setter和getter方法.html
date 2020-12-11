@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{fullname}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      lastname: 'lili',
+      firstname: 'goegle',
+    },
+    computed: {//computed完整属性包括set和get，一般都不用set属性
+      fullname: {
+        set: function (newname){
+          const names=newname.split(' ');
+          this.firstname=names[0];
+          this.lastname=names[1];
+        },
+        get: function (){
+          return this.firstname+' '+this.lastname
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>4</button>
+<button>5</button>
+<script>
+  //ES5之前因为if和for都没有块级作用域的概念，在很多时候需要借用function的作用域来解决应用外部变量的问题
+  //ES6中 let和const有if和for的块级作用域的
+  //没有块级作用域引起的问题（for）
+  var btns=document.getElementsByTagName('button');
+  for(var i=0;i<btns.length;i++){
+    btns[i].addEventListener('click',function (){
+      console.log('第' + i + '个按钮被点击');//i引用的是最外面的i，已经变成5了
+    })
+        //解决方法1：加闭包（立即执行函数）
+        (function(i){
+          btns[i].addEventListener('click',function (){
+            console.log('第' + i + '个按钮被点击');//i引用的是最外面的i，已经变成5了
+          })
+        })(i)
+  }
+  //解决方法2：使用let
+  for(let i=0;i<btns.length;i++){
+    btns[i].addEventListener('click',function (){
+      console.log('第' + i + '个按钮被点击');//i引用的是最外面的i，已经变成5了
+    })
+  }
+
+</script>
+</body>
+</html>

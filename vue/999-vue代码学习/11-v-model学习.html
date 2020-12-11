@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+
+  <select name="abc" id="" v-model="hobbies">
+    <option value="篮球" >篮球</option>
+    <option value="排球">排球</option>
+    <option value="羽毛球">羽毛球</option>
+    <option value="网球">网球</option>
+    <option value="足球">足球</option>
+  </select>
+
+
+
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      hobbies:'排球',
+      fruit:['a','b','c','d']
+    }
+  })
+</script>
+</body>
+</html>

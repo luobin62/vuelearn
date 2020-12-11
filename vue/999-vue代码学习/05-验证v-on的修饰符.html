@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <div @click="divclick">111
+    <button @click.stop="hclick">按钮</button>
+  </div>
+  <input type="text" @keyup="up">
+  <form action="aa"><input type="submit" value="提交" @click.prevent="ll">
+  </form>
+  <button @click.once="rr">一次按钮</button>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    methods: {
+      divclick (){
+        console.log('divclick');
+      },
+      hclick (){
+        console.log('hclick');
+      },
+      up (){
+        console.log('keyup');
+      },
+      ll (){
+        console.log('ll');
+      },
+      rr (){
+        console.log('rr');
+      }
+    }
+  })
+</script>
+</body>
+</html>

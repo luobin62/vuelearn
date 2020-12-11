@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn1></cpn1>
+</div>
+
+<!--template标签-->
+<template id="cpn">
+  <div>
+    <h2>{{title}}</h2>
+    <h2>222</h2>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  /*组件数据的存放：
+  1.组件对象也有个data属性
+  2.data属性必须是函数
+  3.这个函数返回一个对象，对象内部保存着数据
+  */
+  Vue.component('cpn1',{
+    template:'#cpn',
+    data (){
+      return {
+        title:'abc'
+      }
+    }
+  })
+
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    }
+  })
+</script>
+</body>
+</html>

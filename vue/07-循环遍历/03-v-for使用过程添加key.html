@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--添加key可以高效的更新虚拟的DOM-->
+  <ul>
+    <li v-for="m in letter" :key="m">{{m}}</li>
+  </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      letter: ['a','b','c','d','e']
+    }
+  })
+</script>
+</body>
+</html>

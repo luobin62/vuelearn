@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn :number1="num1" :number2="num2" :cobj="obj"></cpn>
+</div>
+<template id="mm">
+  <div>
+  <h2>{{number1}}</h2>
+  <h2>{{number2}}</h2>
+  <h2>{{cobj.name}}</h2>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      num1:1,
+      num2:0,
+      obj: {
+        name: 'bool',
+        age:18,
+        height:188
+      }
+    },
+    components:{
+      cpn: {
+        template:'#mm',
+        props:{
+          number1: Number,
+          number2: Number,
+          cobj: Object,
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

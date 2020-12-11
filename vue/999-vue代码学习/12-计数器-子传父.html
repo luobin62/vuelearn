@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn @addbtn="addcpn" @decbtn="deccpn"></cpn>
+</div>
+<template id="mm">
+  <div>
+  <button @click="add">+</button>
+  <button @click="dec">-</button>
+  <h2>当前计数为{{counter}}</h2>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  const cpn= {
+    template:'#mm',
+    data (){
+      return {
+        counter:0
+      }
+    },
+    methods:{
+      add (){
+        this.counter++;
+        this.$emit('addbtn',this.counter)
+      },
+      dec(){
+        this.counter--;
+        this.$emit('decbtn',this.counter)
+      }
+    }
+
+  }
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components:{
+      cpn
+    },
+    methods: {
+      addcpn(){
+        console.log('add');
+      },
+      deccpn(){
+        console.log('dec');
+      }
+    }
+  })
+</script>
+</body>
+</html>

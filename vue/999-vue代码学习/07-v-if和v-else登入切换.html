@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <span v-if="isshow">
+    <label  for="tel">手机号登入</label>
+    <input type="text" placeholder="手机号" id="tel" key="1">
+  </span>
+  <span v-else>
+    <label  for="email" >邮箱登入</label>
+    <input type="text" placeholder="邮箱" id="email" key="2">
+  </span>
+  <button @click="bntclick">切换登入</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      isshow: true
+    },
+    methods: {
+      bntclick (){
+        this.isshow=!(this.isshow)
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--(值，项，下标)-->
+  <h2 v-for="(m,y,z) in obj">{{m}}-{{y}}-{{z}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      obj: {
+        name:'lili',
+        age:18,
+        height:1.88
+      }
+    }
+  })
+</script>
+</body>
+</html>

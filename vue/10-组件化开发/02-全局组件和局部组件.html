@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpns></cpns>
+</div>
+<div id="app2">
+  <cpns></cpns>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const cpnc=Vue.extend({
+    template: `
+    <div>
+      <h2>1111</h2>
+      <h2>2222</h2>
+    </div>
+    `
+  })
+  //2,注册组件（全局组件，意味着可以在多个vue实例下下面使用）
+  //Vue.component('cpns',cpnc)
+
+  const app = new Vue ({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components:{//2.注册组件（局部组件，在app内注册，第一个为组件名，第二个为构造器）
+      cpns:cpnc
+    }
+  })
+  const app2 =new Vue ({
+    el: '#app2'
+  })
+</script>
+</body>
+</html>
